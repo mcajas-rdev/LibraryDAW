@@ -2,13 +2,13 @@ spring:
   application:
     name: LibraryDAW
   datasource:
-    url: jdbc:mysql://localhost:3306/bookdb
+    # ELIMINA el prefijo "spring.datasource.url=" de aquí dentro
+    url: jdbc:mysql://127.0.0.1:3306/bookdb?allowPublicKeyRetrieval=true&useSSL=false
     username: bookuser
     password: bookpass
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
@@ -22,8 +22,3 @@ spring:
 
 server:
   port: 8090
-
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
